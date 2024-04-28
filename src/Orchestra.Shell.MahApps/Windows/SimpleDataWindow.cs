@@ -103,6 +103,9 @@
             if (mode == DataWindowMode.Close)
             {
                 var button = DataWindowButton.FromSync(languageService.GetRequiredString("Close"), OnCloseExecute, () => true);
+                //TODO ESC关闭窗体
+                button.IsCancel = true;
+                button.IsDefault = true;
                 _buttons.Add(button);
             }
 
@@ -111,7 +114,7 @@
 
             this.FixBlurriness();
         }
-        
+
         /// <summary>
         /// Executes the Ok command.
         /// </summary>
